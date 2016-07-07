@@ -3,12 +3,14 @@
     <tr>
       <th>Name</th>
       <th>Version</th>
+      <th>CVE</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let prog of progs ; let i = index">
-      <td (click)="onClick(prog.id)">{{prog.program_name}}</td>
-      <td (click)="onClick(prog.id)">{{prog.program_version}}</td>
+    <tr *ngFor="let alert of alerts ; let i = index">
+      <td (click)="onClick(prog.id)">{{alert.program.program_name}}</td>
+      <td (click)="onClick(prog.id)">{{alert.program.program_version}}</td>
+      <td (click)="onClick(prog.id)">{{alert.cve.cveid}}</td>
     </tr>
   </tbody>
 </table>
