@@ -7,11 +7,15 @@
 /** Map relative paths to URLs. */
 var map = {
     'moment': 'vendor/moment/moment.js',
-    'ng2-bootstrap': 'vendor/ng2-bootstrap'
+    'ng2-bootstrap': 'vendor/ng2-bootstrap',
+    'ng2-pagination': 'vendor/ng2-pagination'
 };
 /** User packages configuration. */
 var packages = {
     'vendor/ng2-bootstrap': {
+        defaultExtension: 'js'
+    },
+    'vendor/ng2-pagination': {
         defaultExtension: 'js'
     }
 };
