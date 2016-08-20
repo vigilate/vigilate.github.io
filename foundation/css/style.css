@@ -224,3 +224,47 @@ h3 {
 	height: 20px;
 	border-radius: 50%;
 }
+
+/* ANIMATION */
+
+
+.fa-spin-custom, .glyphicon-spin {
+    -webkit-animation: spin 1000ms infinite linear;
+    animation: spin 1000ms infinite linear;
+}
+@-webkit-keyframes spin {
+    0% {
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+    }
+    100% {
+	-webkit-transform: rotate(359deg);
+	transform: rotate(359deg);
+    }
+}
+@keyframes spin {
+    0% {
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+    }
+    100% {
+	-webkit-transform: rotate(359deg);
+	transform: rotate(359deg);
+    }
+}
+
+/* ALERTS */
+
+.state-badge {
+	background-color: #c60f13;
+	color: #fff;
+	display: inline-block;
+	padding: 1px 2px 1px 2px;
+	margin: 2px;
+	height: 20px;
+	border-radius: 10%;
+}
+
+.state-badge-patch {
+	background-color: #13c60f;
+}
