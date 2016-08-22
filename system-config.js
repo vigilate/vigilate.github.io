@@ -20,7 +20,6 @@ var packages = {
         defaultExtension: 'js'
     },
     'vendor/file-saver': {
-        main: 'FileSaver.js',
         defaultExtension: 'js',
         format: 'cjs'
     }
