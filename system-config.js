@@ -9,7 +9,7 @@ var map = {
     'moment': 'vendor/moment/moment.js',
     'ng2-bootstrap': 'vendor/ng2-bootstrap',
     'ng2-pagination': 'vendor/ng2-pagination',
-    'file-saver': 'vendor/file-saver'
+    'file-saver': 'vendor/file-saver',
 };
 /** User packages configuration. */
 var packages = {
