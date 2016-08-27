@@ -2,63 +2,65 @@
   "_args": [
     [
       {
-        "name": "ng2-pagination",
-        "raw": "ng2-pagination",
-        "rawSpec": "",
+        "raw": "ng2-pagination@^0.3.5",
         "scope": null,
-        "spec": "latest",
-        "type": "tag"
+        "escapedName": "ng2-pagination",
+        "name": "ng2-pagination",
+        "rawSpec": "^0.3.5",
+        "spec": ">=0.3.5 <0.4.0",
+        "type": "range"
       },
       "/mnt/blah/frontend/frontend"
     ]
   ],
-  "_from": "ng2-pagination@latest",
-  "_id": "ng2-pagination@0.3.4",
+  "_from": "ng2-pagination@>=0.3.5 <0.4.0",
+  "_id": "ng2-pagination@0.3.5",
   "_inCache": true,
   "_installable": true,
   "_location": "/ng2-pagination",
   "_nodeVersion": "5.11.1",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/ng2-pagination-0.3.4.tgz_1466069669091_0.24365798756480217"
+    "tmp": "tmp/ng2-pagination-0.3.5.tgz_1468491836936_0.5423776453826576"
   },
   "_npmUser": {
-    "email": "michael@michaelbromley.co.uk",
-    "name": "michaelbromley"
+    "name": "michaelbromley",
+    "email": "michael@michaelbromley.co.uk"
   },
   "_npmVersion": "3.5.2",
   "_phantomChildren": {},
   "_requested": {
-    "name": "ng2-pagination",
-    "raw": "ng2-pagination",
-    "rawSpec": "",
+    "raw": "ng2-pagination@^0.3.5",
     "scope": null,
-    "spec": "latest",
-    "type": "tag"
+    "escapedName": "ng2-pagination",
+    "name": "ng2-pagination",
+    "rawSpec": "^0.3.5",
+    "spec": ">=0.3.5 <0.4.0",
+    "type": "range"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/ng2-pagination/-/ng2-pagination-0.3.4.tgz",
-  "_shasum": "f0198c885988249f23a7553843d63a751a75df85",
+  "_resolved": "https://registry.npmjs.org/ng2-pagination/-/ng2-pagination-0.3.5.tgz",
+  "_shasum": "f912ac38f6e6f243375e960881298b8d232e1ac2",
   "_shrinkwrap": null,
-  "_spec": "ng2-pagination",
+  "_spec": "ng2-pagination@^0.3.5",
   "_where": "/mnt/blah/frontend/frontend",
   "author": {
-    "email": "michael@michaelbromley.co.uk",
-    "name": "Michael Bromley"
+    "name": "Michael Bromley",
+    "email": "michael@michaelbromley.co.uk"
   },
   "bugs": {
     "url": "https://github.com/michaelbromley/ng2-pagination/issues"
   },
   "dependencies": {},
-  "description": "Pagination for Angular2",
+  "description": "Pagination for Angular 2",
   "devDependencies": {
-    "@angular/common": "2.0.0-rc.1",
-    "@angular/compiler": "2.0.0-rc.1",
-    "@angular/core": "2.0.0-rc.1",
-    "@angular/platform-browser": "2.0.0-rc.1",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.1",
+    "@angular/common": "2.0.0-rc.4",
+    "@angular/compiler": "2.0.0-rc.4",
+    "@angular/core": "2.0.0-rc.4",
+    "@angular/platform-browser": "2.0.0-rc.4",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.4",
     "bulma": "^0.0.14",
     "core-js": "^2.4.0",
     "css-loader": "^0.23.1",
@@ -87,15 +89,15 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "f0198c885988249f23a7553843d63a751a75df85",
-    "tarball": "https://registry.npmjs.org/ng2-pagination/-/ng2-pagination-0.3.4.tgz"
+    "shasum": "f912ac38f6e6f243375e960881298b8d232e1ac2",
+    "tarball": "https://registry.npmjs.org/ng2-pagination/-/ng2-pagination-0.3.5.tgz"
   },
   "files": [
     "dist",
     "index.js",
     "index.d.ts"
   ],
-  "gitHead": "4bb9f12cff4086f2cb099b53c2fec1497e096eb6",
+  "gitHead": "2a98b3bdce1dd03973e8d3f3fc24dc6340b558a3",
   "homepage": "https://github.com/michaelbromley/ng2-pagination#readme",
   "keywords": [
     "angular2",
@@ -105,8 +107,8 @@
   "main": "index.js",
   "maintainers": [
     {
-      "email": "michael@michaelbromley.co.uk",
-      "name": "michaelbromley"
+      "name": "michaelbromley",
+      "email": "michael@michaelbromley.co.uk"
     }
   ],
   "name": "ng2-pagination",
@@ -127,5 +129,5 @@
     "test:watch": "npm run test -- --auto-watch --no-single-run",
     "typings:install": "node node_modules/typings/dist/bin install"
   },
-  "version": "0.3.4"
+  "version": "0.3.5"
 }
