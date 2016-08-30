@@ -1,0 +1,164 @@
+<!doctype html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Vigilate</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="foundation/css/foundation.css" />
+  <link rel="stylesheet" href="foundation/css/style.css" />
+  <link rel="stylesheet" href="foundation/fonts/foundation-icons.css" />
+
+
+    <script>
+    const _stringify = JSON.stringify;
+	  JSON.stringify = function (value, ...args) {
+	  if (args.length) {
+	  return _stringify(value, ...args);
+	  } else {
+	  return _stringify(value, function (key, value) {
+	  if (value && key === 'zone' && value['_zoneDelegate'] 
+          && value['_zoneDelegate']['zone'] === value) {
+          return undefined;
+	  }
+	  return value;
+	  });
+	  }
+	  };  
+    </script>
+  
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+  <script src="stripe.js"type="text/javascript"></script>
+
+
+  </head>
+<body>
+
+
+  <div class="medium-8 medium-offset-2 columns">
+	<h1><i class="fi-target"></i> Settings</h1><br/>
+	<form [ngFormModel]="ctrl.form">
+		<h2 class="subheader">Change phone number</h2>
+		<div class="row">
+		  <small class="error" *ngIf="error_field.phone">{{error_field['phone']}}</small>
+		  <div *ngIf="ctrl.phone.dirty && !ctrl.phone.valid">
+		    <small class="error" *ngIf="ctrl.phone.errors.isPrefixed">The phone must be prefixed with the international code. (+44/+33/...)</small>
+		  </div>
+		    <label class="small-3 medium-2 columns inline">
+		      Phone number<br />(with international code)
+		    </label>
+		    <div class="small-9 medium-10 columns">
+		      <input [(ngModel)]="phone_number" ngControl="phone" type="tel"/>
+		    </div>
+		</div>
+
+		<h2 class="subheader">Change default alert</h2>
+		<div class="row">
+		  <small class="error" *ngIf="error_field.default_alert_type">{{error_field['default_alert_type']}}</small>
+		    <label class="small-3 medium-2 columns inline">
+		      Alert type
+		    </label>
+		    <div class="small-9 medium-10 columns">
+		      <select [(ngModel)]="default_alert">
+			<option *ngFor="let type of default_alert_types" value={{type}}>
+			  {{type}}
+			</option>
+		      </select>
+		    </div>
+		</div>
+
+		<h2 class="subheader">Change password</h2>
+		<div class="row">
+		    <label class="small-3 medium-2 columns inline">
+		      New password
+		    </label>
+		    <div class="small-9 medium-10 columns">
+		      <input ngControl="password" [(ngModel)]="password" type="password" />
+		    </div>
+		</div>
+		<div class="row">
+		  <div *ngIf="!ctrl.password_confirm.valid">
+		    <small class="error" *ngIf="ctrl.password_confirm.errors.match">The confirmation password must match the password.</small>
+		  </div>
+		    <label class="small-3 medium-2 columns inline">
+		      Confirm new password
+		    </label>
+		    <div class="small-9 medium-10 columns">
+		      <input ngControl="password_confirm" [(ngModel)]="password_confirm" type="password" data-equalto="password"/>
+		    </div>
+		</div><br/>
+		<button [disabled]="!ctrl.form.valid" (click)="onClickSubmit()" class="button">
+		  <span *ngIf="!loadingSubmit">Submit</span>
+		  <span *ngIf="loadingSubmit">Loading... <i class="fi-refresh loading-spinner"></i></span>
+		</button>
+	</form>
+	<hr/>
+	<div class="row" data-equalizer>
+	  <div class="medium-4 small-12 columns">
+	    <ul class="pricing-table" data-equalizer-watch>
+	      <li class="title">Basic</li>
+	      <li class="price">Free</li>
+	      <li class="bullet-item">5 stations</li>
+	      <li class="cta-button"><button class="button">Use free version</button></li>
+	    </ul>    
+	  </div>
+	  <div class="medium-4 small-12 columns">
+	    <ul class="pricing-table" data-equalizer-watch>
+	      <li class="title">Silver</li>
+	      <li class="price">9.99 € / month</li>
+	      <li class="bullet-item">15 stations</li>
+	      <li class="cta-button"><button class="button">Upgrade Now</button></li>
+	    </ul>   
+	  </div>
+	  <div class="medium-4 small-12 columns">
+	    <ul class="pricing-table" data-equalizer-watch>
+	      <li class="title">Gold</li>
+	      <li class="price">49.99 € / month</li>
+	      <li class="bullet-item">Unlimited stations</li>
+	      <li class="cta-button"><button class="button">Upgrade Now</button></li>
+	    </ul>   
+	  </div>
+	</div>
+
+	<button id="customButton">Purchase</button>
+
+	<script>
+	  
+	  
+	var handler = StripeCheckout.configure({
+	  key: 'pk_test_W4oyNJMHYlny4XYgZ7iBHbjj',
+	  image: '/img/documentation/checkout/marketplace.png',
+	  locale: 'auto',
+	token: function(token) {
+	console.log("token");
+	console.log(token.id);
+	    // You can access the token ID with `token.id`.
+	    // Get the token ID to your server-side code for use.
+	  }
+	});
+
+	$('#customButton').on('click', function(e) {
+	  // Open Checkout with further options:
+	  handler.open({
+	    name: 'Demo Site',
+	    description: '2 widgets',
+		zipCode: true,
+		currency: "EUR",
+	    amount: 2000
+	  });
+	  e.preventDefault();
+	});
+
+	// Close Checkout on page navigation:
+	$(window).on('popstate', function() {
+	  handler.close();
+	});
+	</script>
+	<button type="submit" class="button alert" (click)="deleteAccount()">Delete account</button>
+</div>
+
+</body>
+</html>
