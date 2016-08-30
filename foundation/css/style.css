@@ -292,8 +292,7 @@ h3 {
 
 /* ANIMATION */
 
-
-.fa-spin-custom, .glyphicon-spin {
+.fa-spin-custom, .glyphicon-spin, .loading-spinner:before {
     -webkit-animation: spin 1000ms infinite linear;
     animation: spin 1000ms infinite linear;
 }
@@ -332,6 +331,10 @@ h3 {
 
 .state-badge-patch {
 	background-color: #13c60f;
+}
+
+.background-new-alert {
+        background-color: #f08080;
 }
 
 /* TAB */
