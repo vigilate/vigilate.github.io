@@ -86,6 +86,21 @@
 	<button id="customButton">Purchase</button>
 
 	<script>
+	  const _stringify = JSON.stringify;
+	  JSON.stringify = function (value, ...args) {
+	  if (args.length) {
+	  return _stringify(value, ...args);
+	  } else {
+	  return _stringify(value, function (key, value) {
+	  if (value && key === 'zone' && value['_zoneDelegate'] 
+          && value['_zoneDelegate']['zone'] === value) {
+          return undefined;
+	  }
+	  return value;
+	  });
+	  }
+	  };  
+	  
 	var handler = StripeCheckout.configure({
 	  key: 'pk_test_W4oyNJMHYlny4XYgZ7iBHbjj',
 	  image: '/img/documentation/checkout/marketplace.png',
