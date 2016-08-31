@@ -129,7 +129,7 @@
 	  
 	  
 	var handler = StripeCheckout.configure({
-	  key: 'pk_test_W4oyNJMHYlny4XYgZ7iBHbjj',
+	  key: 'pk_test_3Cr6DgE4dFp356g6rdDVV86i',
 	  image: '/img/documentation/checkout/marketplace.png',
 	  locale: 'auto',
 	token: function(token) {
@@ -143,8 +143,8 @@
 	$('#customButton').on('click', function(e) {
 	  // Open Checkout with further options:
 	  handler.open({
-	    name: 'Demo Site',
-	    description: '2 widgets',
+	name: 'Demo Site',
+	description: '2 widgets',
 		zipCode: true,
 		currency: "EUR",
 	    amount: 2000
