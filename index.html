@@ -11,30 +11,6 @@
   <link rel="stylesheet" href="foundation/css/foundation.css" />
   <link rel="stylesheet" href="foundation/css/style.css" />
   <link rel="stylesheet" href="foundation/fonts/foundation-icons.css" />
-
-
-    <script>
-    const _stringify = JSON.stringify;
-	  JSON.stringify = function (value, ...args) {
-	  if (args.length) {
-	  return _stringify(value, ...args);
-	  } else {
-	  return _stringify(value, function (key, value) {
-	  if (value && key === 'zone' && value['_zoneDelegate'] 
-          && value['_zoneDelegate']['zone'] === value) {
-          return undefined;
-	  }
-	  return value;
-	  });
-	  }
-	  };  
-    </script>
-  
-  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-  <script src="https://checkout.stripe.com/checkout.js"></script>
-  <script src="stripe.js"type="text/javascript"></script>
-
-
   </head>
 <body>
   <app-root>Loading...</app-root>
